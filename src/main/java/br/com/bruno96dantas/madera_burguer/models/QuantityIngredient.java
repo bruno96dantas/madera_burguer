@@ -24,10 +24,8 @@ public class QuantityIngredient {
 
     private Double value;
 
-    public Double calculateValue() {
+     void calculateValue() {
 
         this.setValue(this.ingredient.getPrice() * this.quantity);
-
-        return this.getValue();
     }
 }

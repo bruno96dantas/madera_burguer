@@ -14,26 +14,38 @@ public class SandwichTest {
 
 
     @Test
-    public void shoulCalculatePrice(){
+    public void shouldCalculatePrice(){
 
-        List<Ingredient> ingredients = new ArrayList<>();
+        List<QuantityIngredient> ingredients = new ArrayList<>();
 
-        Ingredient ingredient1 = Ingredient.builder()
+        Ingredient alface = Ingredient.builder()
                 .name("Alface")
                 .price(1.00)
+                .build();
+
+        Ingredient carne = Ingredient.builder()
+                .name("Hamburguer")
+                .price(3.0)
+                .build();
+
+        Ingredient queijo = Ingredient.builder()
+                .name("Queijo")
+                .price(1.50)
+                .build();
+
+        QuantityIngredient ingredient1 = QuantityIngredient.builder()
+                .ingredient(alface)
                 .quantity(3)
                 .build();
 
-        Ingredient ingredient2 = Ingredient.builder()
-                .name("Hamburguer")
-                .price(3.0)
+        QuantityIngredient ingredient2 = QuantityIngredient.builder()
+                .ingredient(carne)
                 .quantity(2)
                 .build();
 
-        Ingredient ingredient3 = Ingredient.builder()
-                .name("Queijo")
-                .price(1.50)
-                .quantity(4)
+        QuantityIngredient ingredient3 = QuantityIngredient.builder()
+                .ingredient(queijo)
+                .quantity(2)
                 .build();
 
         ingredients.add(ingredient1);
@@ -41,12 +53,13 @@ public class SandwichTest {
         ingredients.add(ingredient3);
 
         Sandwich sandwich = Sandwich.builder()
-                .name("X- Salada")
+                .name("X-Salada")
                 .ingredients(ingredients)
                 .build();
 
-        sandwich.calculatePrice(ingredients);
+        sandwich.calculatePrice();
 
-        assertThat(sandwich.getPrice()).isEqualTo(15.0);
+        assertThat(sandwich.getPrice()).isEqualTo(12.0);
+
     }
 }

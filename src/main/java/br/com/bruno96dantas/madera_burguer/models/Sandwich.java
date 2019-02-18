@@ -25,10 +25,17 @@ public class Sandwich {
 
     private List<QuantityIngredient> ingredients;
 
-    public void calculatePrice() {
+    void calculatePrice() {
 
-        Double price = this.getPrice();
+        Double maybePrice = 0.0;
 
+        for (QuantityIngredient ingredient : ingredients) {
+
+            ingredient.calculateValue();
+            maybePrice += ingredient.getValue();
+        }
+
+        setPrice(maybePrice);
     }
 
 }

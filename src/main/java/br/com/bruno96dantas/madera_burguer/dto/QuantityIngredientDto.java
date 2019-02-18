@@ -1,5 +1,6 @@
 package br.com.bruno96dantas.madera_burguer.dto;
 
+import br.com.bruno96dantas.madera_burguer.models.Ingredient;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -9,10 +10,12 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 @Builder
-public class IngredientDto {
+public class QuantityIngredientDto {
 
     private Long id;
 
-    private String name;
-    private Double price;
+    private Ingredient ingredient;
+    private Integer quantity;
+
+    private Double value;
 }

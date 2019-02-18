@@ -1,6 +1,6 @@
 package br.com.bruno96dantas.madera_burguer.dto;
 
-import br.com.bruno96dantas.madera_burguer.models.Ingredient;
+import br.com.bruno96dantas.madera_burguer.models.QuantityIngredient;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -19,5 +19,5 @@ public class SandwichDto {
     private String name;
     private Double price;
 
-    private List<Ingredient> ingredients;
+    private List<QuantityIngredient> ingredients;
 }
