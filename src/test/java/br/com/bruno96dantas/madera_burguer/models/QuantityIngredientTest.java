@@ -42,9 +42,9 @@ public class QuantityIngredientTest {
                 .quantity(2)
                 .build();
 
-        quantityIngredient1.calculateValue();
-        quantityIngredient2.calculateValue();
-        quantityIngredient3.calculateValue();
+        quantityIngredient1.getValue();
+        quantityIngredient2.getValue();
+        quantityIngredient3.getValue();
 
         assertThat(quantityIngredient1.getValue()).isEqualTo(3.0);
         assertThat(quantityIngredient2.getValue()).isEqualTo(6.0);

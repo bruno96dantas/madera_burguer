@@ -57,7 +57,7 @@ public class SandwichTest {
                 .ingredients(ingredients)
                 .build();
 
-        sandwich.calculatePrice();
+        sandwich.getPrice();
 
         assertThat(sandwich.getPrice()).isEqualTo(12.0);
 

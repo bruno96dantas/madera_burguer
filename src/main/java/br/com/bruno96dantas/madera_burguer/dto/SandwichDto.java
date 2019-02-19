@@ -17,7 +17,6 @@ public class SandwichDto {
     private Long id;
 
     private String name;
-    private Double price;
 
     private List<QuantityIngredient> ingredients;
 }

@@ -1,32 +1,38 @@
 package br.com.bruno96dantas.madera_burguer.models.promotion;
 
+import br.com.bruno96dantas.madera_burguer.models.Ingredient;
+import br.com.bruno96dantas.madera_burguer.models.IngredientType;
 import br.com.bruno96dantas.madera_burguer.models.QuantityIngredient;
 import br.com.bruno96dantas.madera_burguer.models.Sandwich;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
 
-@EqualsAndHashCode(callSuper = false)
-@Data
+import java.util.List;
+import java.util.stream.Collectors;
+
 public class RuleLight extends Rule {
 
-    private Double percentage;
 
     @Override
     public boolean validate(Sandwich sandwich) {
 
-        for (QuantityIngredient ingredient : sandwich.getIngredients()) {
+        List<IngredientType> ingredientTypes = sandwich.getIngredients().stream()
+                .map(QuantityIngredient::getIngredient)
+                .map(Ingredient::getIngredientType)
+                .collect(Collectors.toList());
 
-            if ( ingredient.getIngredient().getName().matches("alface") && !ingredient.getIngredient().getName().matches("bacon")) {
-                setPercentage(0.10);
-                return true;
-            }
-        }
-        setPercentage(0.0);
-        return false;
+        return ingredientTypes.contains(IngredientType.ALFACE) && !ingredientTypes.contains(IngredientType.BACON);
+
     }
 
     @Override
-    public Double promotionValue() {
-        return 0.0;
+    public double valueOfDiscount(Sandwich sandwich) {
+
+        if (validate(sandwich)) {
+
+            double sandwichPrice = sandwich.getPrice();
+
+            return sandwichPrice * 0.10;
+        }
+
+        return  0.0;
     }
 }

@@ -19,10 +19,10 @@ public abstract class Rule {
     private Long id;
 
     private String name;
-    // enum type
+    private RuleType ruleType;
     private Sandwich sandwich;
 
     public abstract boolean validate(Sandwich sandwich);
 
-    public abstract Double promotionValue();
+    public abstract double valueOfDiscount(Sandwich sandwich);
 }

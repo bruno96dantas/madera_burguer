@@ -20,12 +20,9 @@ public class QuantityIngredient {
     private Long id;
 
     private Ingredient ingredient;
-    private Integer quantity;
+    private int quantity;
 
-    private Double value;
-
-     void calculateValue() {
-
-        this.setValue(this.ingredient.getPrice() * this.quantity);
+    public double getValue(){
+        return ingredient == null ? 0.0 : ingredient.getPrice() * this.quantity;
     }
 }

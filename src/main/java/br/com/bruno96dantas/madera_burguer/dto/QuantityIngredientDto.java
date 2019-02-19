@@ -15,7 +15,5 @@ public class QuantityIngredientDto {
     private Long id;
 
     private Ingredient ingredient;
-    private Integer quantity;
-
-    private Double value;
+    private int quantity;
 }
