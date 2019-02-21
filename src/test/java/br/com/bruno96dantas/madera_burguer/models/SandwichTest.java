@@ -1,5 +1,6 @@
 package br.com.bruno96dantas.madera_burguer.models;
 
+import org.assertj.core.data.Percentage;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.junit.MockitoJUnitRunner;
@@ -18,33 +19,19 @@ public class SandwichTest {
 
         List<QuantityIngredient> ingredients = new ArrayList<>();
 
-        Ingredient alface = Ingredient.builder()
-                .name("Alface")
-                .price(1.00)
-                .build();
-
-        Ingredient carne = Ingredient.builder()
-                .name("Hamburguer")
-                .price(3.0)
-                .build();
-
-        Ingredient queijo = Ingredient.builder()
-                .name("Queijo")
-                .price(1.50)
-                .build();
 
         QuantityIngredient ingredient1 = QuantityIngredient.builder()
-                .ingredient(alface)
+                .ingredient(IngredientType.ALFACE)
                 .quantity(3)
                 .build();
 
         QuantityIngredient ingredient2 = QuantityIngredient.builder()
-                .ingredient(carne)
+                .ingredient(IngredientType.CARNE)
                 .quantity(2)
                 .build();
 
         QuantityIngredient ingredient3 = QuantityIngredient.builder()
-                .ingredient(queijo)
+                .ingredient(IngredientType.QUEIJO)
                 .quantity(2)
                 .build();
 
@@ -59,7 +46,7 @@ public class SandwichTest {
 
         sandwich.getPrice();
 
-        assertThat(sandwich.getPrice()).isEqualTo(12.0);
+        assertThat(sandwich.getPrice()).isCloseTo(10.2, Percentage.withPercentage(0.01));
 
     }
 }

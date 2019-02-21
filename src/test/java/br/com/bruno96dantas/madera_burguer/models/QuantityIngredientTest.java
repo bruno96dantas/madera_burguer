@@ -1,5 +1,6 @@
 package br.com.bruno96dantas.madera_burguer.models;
 
+import org.assertj.core.data.Percentage;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.junit.MockitoJUnitRunner;
@@ -12,33 +13,19 @@ public class QuantityIngredientTest {
     @Test
     public void shouldCalculateValue() {
 
-        Ingredient alface = Ingredient.builder()
-                .name("Alface")
-                .price(1.00)
-                .build();
-
-        Ingredient carne = Ingredient.builder()
-                .name("Hamburguer")
-                .price(3.0)
-                .build();
-
-        Ingredient queijo = Ingredient.builder()
-                .name("Queijo")
-                .price(1.50)
-                .build();
 
         QuantityIngredient quantityIngredient1 = QuantityIngredient.builder()
-                .ingredient(alface)
+                .ingredient(IngredientType.ALFACE)
                 .quantity(3)
                 .build();
 
         QuantityIngredient quantityIngredient2 = QuantityIngredient.builder()
-                .ingredient(carne)
+                .ingredient(IngredientType.CARNE)
                 .quantity(2)
                 .build();
 
         QuantityIngredient quantityIngredient3 = QuantityIngredient.builder()
-                .ingredient(queijo)
+                .ingredient(IngredientType.QUEIJO)
                 .quantity(2)
                 .build();
 
@@ -46,8 +33,8 @@ public class QuantityIngredientTest {
         quantityIngredient2.getValue();
         quantityIngredient3.getValue();
 
-        assertThat(quantityIngredient1.getValue()).isEqualTo(3.0);
-        assertThat(quantityIngredient2.getValue()).isEqualTo(6.0);
-        assertThat(quantityIngredient3.getValue()).isEqualTo(3.0);
+        assertThat(quantityIngredient1.getValue()).isCloseTo(1.2, Percentage.withPercentage(0.01));
+        assertThat(quantityIngredient2.getValue()).isCloseTo(6.0, Percentage.withPercentage(0.01));
+        assertThat(quantityIngredient3.getValue()).isCloseTo(3.0, Percentage.withPercentage(0.01));
     }
 }

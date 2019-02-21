@@ -5,16 +5,13 @@ import br.com.bruno96dantas.madera_burguer.models.Sandwich;
 
 import java.util.Map;
 
-public class RuleLight extends Rule {
-
+public class RuleCheese extends Rule {
 
     @Override
     public boolean validate(Sandwich sandwich) {
-
         Map<IngredientType, Integer> sandwichContext = sandwich.getContext();
 
-        return sandwichContext.containsKey(IngredientType.ALFACE) && !sandwichContext.containsKey(IngredientType.BACON);
-
+        return sandwichContext.getOrDefault(IngredientType.QUEIJO, 0) >= 3;
     }
 
     @Override
@@ -22,11 +19,13 @@ public class RuleLight extends Rule {
 
         if (validate(sandwich)) {
 
-            double sandwichPrice = sandwich.getPrice();
+            Map<IngredientType, Integer> sandwichContext = sandwich.getContext();
 
-            return sandwichPrice * 0.10;
+            Integer quantityCheese = sandwichContext.get(IngredientType.QUEIJO);
+
+            return (quantityCheese / 3) * IngredientType.QUEIJO.getPrice();
         }
 
-        return  0.0;
+        return 0.0;
     }
 }

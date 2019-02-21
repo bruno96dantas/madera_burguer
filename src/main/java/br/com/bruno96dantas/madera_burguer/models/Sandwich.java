@@ -6,6 +6,9 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
 
 @Entity
 @AllArgsConstructor
@@ -28,6 +31,11 @@ public class Sandwich {
                 .reduce(Double::sum)
                 .orElse(0.0d);
 
+    }
+
+    public Map<IngredientType, Integer> getContext() {
+        return getIngredients().stream()
+                .collect(Collectors.toMap(QuantityIngredient::getIngredient, QuantityIngredient::getQuantity));
     }
 
 }
