@@ -16,7 +16,7 @@ public class DiscountConvert implements Converter<Discount, DiscountDto> {
     }
 
     @Override
-    public DiscountDto unCovert(Discount discount) {
+    public DiscountDto unConvert(Discount discount) {
         return DiscountDto.builder()
                 .sandwich(discount.getSandwich())
                 .valueWithDiscount(discount.getDiscount())

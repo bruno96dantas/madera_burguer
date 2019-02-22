@@ -24,7 +24,7 @@ public class SandwichService {
         List<Sandwich> sandwichList = sandwichRepository.findAll();
 
         return sandwichList.stream()
-                .map(sandwich -> sandwichConvert.unCovert(sandwich))
+                .map(sandwich -> sandwichConvert.unConvert(sandwich))
                 .collect(Collectors.toList());
     }
 }

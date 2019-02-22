@@ -16,7 +16,7 @@ public class SandwichConvert implements Converter<Sandwich, SandwichDto> {
     }
 
     @Override
-    public SandwichDto unCovert(Sandwich sandwich) {
+    public SandwichDto unConvert(Sandwich sandwich) {
         return SandwichDto.builder()
                 .name(sandwich.getName())
                 .ingredients(sandwich.getIngredients())

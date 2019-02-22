@@ -4,5 +4,5 @@ public interface Converter<model, dto> {
 
     model convert(dto dto);
 
-    dto unCovert(model model);
+    dto unConvert(model model);
 }
