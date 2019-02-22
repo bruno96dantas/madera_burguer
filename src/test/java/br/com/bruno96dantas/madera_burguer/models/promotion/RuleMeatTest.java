@@ -66,8 +66,8 @@ public class RuleMeatTest {
 
         RuleMeat ruleMeat = new RuleMeat();
 
-        assertThat(ruleMeat.valueOfDiscount(sandwich1)).isEqualTo(3.0);
-        assertThat(ruleMeat.valueOfDiscount(sandwich2)).isEqualTo(6.0);
+        assertThat(ruleMeat.valueOfDiscount(sandwich1)).isEqualTo(IngredientType.CARNE.getPrice() * 1);
+        assertThat(ruleMeat.valueOfDiscount(sandwich2)).isEqualTo(IngredientType.CARNE.getPrice() * 2);
     }
 
 }
