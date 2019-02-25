@@ -6,13 +6,12 @@ import br.com.bruno96dantas.madera_burguer.dto.SandwichDto;
 import br.com.bruno96dantas.madera_burguer.models.IngredientType;
 import br.com.bruno96dantas.madera_burguer.models.QuantityIngredient;
 import br.com.bruno96dantas.madera_burguer.models.Sandwich;
-import br.com.bruno96dantas.madera_burguer.models.promotion.RuleType;
 import org.assertj.core.data.Percentage;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
-import org.mockito.Mock;
+import org.mockito.Spy;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import java.util.ArrayList;
@@ -25,11 +24,11 @@ public class DiscountServiceTest {
 
     private Sandwich sandwich1;
 
+    @Spy
+    private SandwichConvert sandwichConvert;
+
     @InjectMocks
     private DiscountService discountService;
-
-    @Mock
-    private SandwichConvert sandwichConvert;
 
     @Before
     public void setUp() {
@@ -64,12 +63,14 @@ public class DiscountServiceTest {
     @Test
     public void shouldGetPriceWithDiscount() {
 
-        SandwichDto sandwichDto = sandwichConvert.unConvert(sandwich1);
+        SandwichDto sandwichDto = SandwichDto.builder()
+                .name(sandwich1.getName())
+                .ingredients(sandwich1.getIngredients())
+                .build();
 
         DiscountDto discountDto = discountService.getPriceWithDiscount(sandwichDto);
 
         assertThat(discountDto.getSandwich().getName()).isGreaterThanOrEqualTo("X-Salada");
-        assertThat(discountDto.getRule().getRuleType()).isEqualByComparingTo(RuleType.LIGHT);
         assertThat(discountDto.getValueWithDiscount()).isCloseTo(9.18, Percentage.withPercentage(0.01));
     }
 }

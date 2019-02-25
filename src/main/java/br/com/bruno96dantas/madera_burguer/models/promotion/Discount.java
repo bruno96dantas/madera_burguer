@@ -17,8 +17,7 @@ public class Discount {
 //    @GeneratedValue(strategy = GenerationType.IDENTITY)
 //    private Long id;
 
-    private
-    Rule rule;
+    private Rule rule;
 
     private Sandwich sandwich;
 

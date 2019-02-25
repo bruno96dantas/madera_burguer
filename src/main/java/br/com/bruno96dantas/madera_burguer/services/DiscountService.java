@@ -18,7 +18,7 @@ import static java.util.stream.Collectors.toSet;
 public class DiscountService {
 
     @Autowired
-    private SandwichConvert sandwichConvert;
+    private SandwichConvert sandwichConverter;
 
     private List<Rule> availableRules = asList(new RuleCheese(), new RuleLight(), new RuleMeat());
 
@@ -33,13 +33,16 @@ public class DiscountService {
 
     private double sumDiscount(Set<Discount> discounts) {
 
-        return discounts.stream().map(Discount::getDiscount).mapToDouble(Double::doubleValue).sum();
+        return discounts.stream()
+                .map(Discount::getDiscount)
+                .mapToDouble(Double::doubleValue)
+                .sum();
 
     }
 
     public DiscountDto getPriceWithDiscount(SandwichDto sandwichDto) {
 
-        Sandwich sandwich = sandwichConvert.convert(sandwichDto);
+        Sandwich sandwich = sandwichConverter.convert(sandwichDto);
 
         return DiscountDto.builder()
                 .sandwich(sandwich)
