@@ -12,9 +12,5 @@ import java.util.List;
 @Builder
 public class SandwichDto {
 
-    private Long id;
-
-    private String name;
-
     private List<QuantityIngredient> ingredients;
 }

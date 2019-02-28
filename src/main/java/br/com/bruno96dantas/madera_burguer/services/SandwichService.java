@@ -2,29 +2,27 @@ package br.com.bruno96dantas.madera_burguer.services;
 
 import br.com.bruno96dantas.madera_burguer.converters.SandwichConvert;
 import br.com.bruno96dantas.madera_burguer.dto.SandwichDto;
-import br.com.bruno96dantas.madera_burguer.models.Sandwich;
-import br.com.bruno96dantas.madera_burguer.repositories.SandwichRepository;
+import br.com.bruno96dantas.madera_burguer.models.sandwich.Sandwich;
+import br.com.bruno96dantas.madera_burguer.models.sandwich.StaticSandwiches;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class SandwichService {
 
     @Autowired
-    private SandwichRepository sandwichRepository;
-
-    @Autowired
     private SandwichConvert sandwichConvert;
 
-    public List<SandwichDto> selectAll() {
+    public StaticSandwiches getSandwichIngredients(StaticSandwiches sandwichType) {
 
-        List<Sandwich> sandwichList = sandwichRepository.findAll();
-
-        return sandwichList.stream()
-                .map(sandwich -> sandwichConvert.unConvert(sandwich))
-                .collect(Collectors.toList());
+        return sandwichType;
     }
+
+    public SandwichDto createSandwich(SandwichDto sandwichDto) {
+
+        Sandwich sandwich = sandwichConvert.convert(sandwichDto);
+
+        return sandwichConvert.unConvert(sandwich);
+    }
+
 }

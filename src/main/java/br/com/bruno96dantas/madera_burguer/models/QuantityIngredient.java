@@ -11,14 +11,16 @@ import java.util.Optional;
 @AllArgsConstructor
 @Data
 @Builder
-@Table
+@Table(name = "ingredients")
 public class QuantityIngredient {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Enumerated(EnumType.STRING)
     private IngredientType ingredient;
+
     private int quantity;
 
     public double getValue(){

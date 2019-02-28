@@ -1,22 +1,30 @@
 package br.com.bruno96dantas.madera_burguer.controllers;
 
+import br.com.bruno96dantas.madera_burguer.dto.SandwichDto;
+import br.com.bruno96dantas.madera_burguer.models.sandwich.StaticSandwiches;
 import br.com.bruno96dantas.madera_burguer.services.SandwichService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/sandwiches")
+@RequestMapping("/sandwich")
 public class SandwichController {
 
     @Autowired
     private SandwichService sandwichService;
 
-    @GetMapping
-    public ResponseEntity selectAll() {
+    @PostMapping
+    public ResponseEntity createSandwich(@RequestBody SandwichDto sandwichDto) {
 
-        return ResponseEntity.ok(sandwichService.selectAll());
+        sandwichService.createSandwich(sandwichDto);
+
+        return ResponseEntity.ok(sandwichDto);
+    }
+
+    @GetMapping("/{sandwichName}")
+    public ResponseEntity selectAll(@PathVariable("sandwichName") StaticSandwiches sandwichType) {
+
+        return ResponseEntity.ok(sandwichService.getSandwichIngredients(sandwichType));
     }
 }

@@ -12,6 +12,7 @@ public enum IngredientType {
 
     @Getter
     private String name;
+
     @Getter
     private double price;
 
