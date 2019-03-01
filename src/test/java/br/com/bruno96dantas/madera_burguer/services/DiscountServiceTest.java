@@ -3,8 +3,8 @@
 //import br.com.bruno96dantas.madera_burguer.converters.SandwichConvert;
 //import br.com.bruno96dantas.madera_burguer.dto.DiscountDto;
 //import br.com.bruno96dantas.madera_burguer.dto.SandwichDto;
-//import br.com.bruno96dantas.madera_burguer.models.IngredientType;
-//import br.com.bruno96dantas.madera_burguer.models.QuantityIngredient;
+//import br.com.bruno96dantas.madera_burguer.models.ingredient.IngredientType;
+//import br.com.bruno96dantas.madera_burguer.models.ingredient.QuantityIngredient;
 //import br.com.bruno96dantas.madera_burguer.models.sandwich.Sandwich;
 //import org.assertj.core.data.Percentage;
 //import org.junit.Before;

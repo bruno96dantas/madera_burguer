@@ -1,7 +1,7 @@
 //package br.com.bruno96dantas.madera_burguer.models.promotion;
 //
-//import br.com.bruno96dantas.madera_burguer.models.IngredientType;
-//import br.com.bruno96dantas.madera_burguer.models.QuantityIngredient;
+//import br.com.bruno96dantas.madera_burguer.models.ingredient.IngredientType;
+//import br.com.bruno96dantas.madera_burguer.models.ingredient.QuantityIngredient;
 //import br.com.bruno96dantas.madera_burguer.models.sandwich.Sandwich;
 //import br.com.bruno96dantas.madera_burguer.models.rule.RuleLight;
 //import org.assertj.core.data.Percentage;

@@ -1,5 +1,7 @@
 package br.com.bruno96dantas.madera_burguer.models;
 
+import br.com.bruno96dantas.madera_burguer.models.ingredient.IngredientType;
+import br.com.bruno96dantas.madera_burguer.models.ingredient.QuantityIngredient;
 import org.assertj.core.data.Percentage;
 import org.junit.Test;
 import org.junit.runner.RunWith;

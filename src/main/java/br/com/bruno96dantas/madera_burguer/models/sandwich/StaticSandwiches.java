@@ -1,12 +1,12 @@
 package br.com.bruno96dantas.madera_burguer.models.sandwich;
 
-import br.com.bruno96dantas.madera_burguer.models.IngredientType;
+import br.com.bruno96dantas.madera_burguer.models.ingredient.IngredientType;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
 
 import java.util.List;
 
-import static br.com.bruno96dantas.madera_burguer.models.IngredientType.*;
+import static br.com.bruno96dantas.madera_burguer.models.ingredient.IngredientType.*;
 import static java.util.Arrays.asList;
 
 @JsonFormat(shape = JsonFormat.Shape.OBJECT)

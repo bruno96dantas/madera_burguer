@@ -1,4 +1,4 @@
-package br.com.bruno96dantas.madera_burguer.models;
+package br.com.bruno96dantas.madera_burguer.models.ingredient;
 
 import lombok.Getter;
 

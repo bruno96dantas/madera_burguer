@@ -1,6 +1,6 @@
 //package br.com.bruno96dantas.madera_burguer.models.rule;
 //
-//import br.com.bruno96dantas.madera_burguer.models.IngredientType;
+//import br.com.bruno96dantas.madera_burguer.models.ingredient.IngredientType;
 //import br.com.bruno96dantas.madera_burguer.models.sandwich.Sandwich;
 //
 //import java.util.Map;

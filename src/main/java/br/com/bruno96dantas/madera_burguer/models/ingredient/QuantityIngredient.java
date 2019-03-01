@@ -1,24 +1,16 @@
-package br.com.bruno96dantas.madera_burguer.models;
+package br.com.bruno96dantas.madera_burguer.models.ingredient;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 
-import javax.persistence.*;
 import java.util.Optional;
 
-@Entity
 @AllArgsConstructor
 @Data
 @Builder
-@Table(name = "ingredients")
 public class QuantityIngredient {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    @Enumerated(EnumType.STRING)
     private IngredientType ingredient;
 
     private int quantity;
