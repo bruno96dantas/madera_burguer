@@ -10,7 +10,7 @@ import static br.com.bruno96dantas.madera_burguer.models.ingredient.IngredientTy
 import static java.util.Arrays.asList;
 
 @JsonFormat(shape = JsonFormat.Shape.OBJECT)
-public enum StaticSandwiches {
+public enum SandwichType {
 
     XBACON("XBACON", asList(CARNE, QUEIJO, BACON)),
     XBURGUER("XBURGUER", asList(CARNE, QUEIJO)),
@@ -25,7 +25,7 @@ public enum StaticSandwiches {
     @Getter
     private List<IngredientType> ingredientTypes;
 
-    StaticSandwiches(String name, List<IngredientType> ingredientTypes) {
+    SandwichType(String name, List<IngredientType> ingredientTypes) {
         this.name = name;
         this.ingredientTypes = ingredientTypes;
     }

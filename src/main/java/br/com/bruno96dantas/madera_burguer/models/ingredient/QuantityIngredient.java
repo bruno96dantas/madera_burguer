@@ -7,7 +7,6 @@ import lombok.Data;
 import java.util.Optional;
 
 @AllArgsConstructor
-@Data
 @Builder
 public class QuantityIngredient {
 
@@ -15,12 +14,17 @@ public class QuantityIngredient {
 
     private int quantity;
 
-    public double getValue(){
+    public IngredientType getIngredient() {
+        return ingredient;
+    }
 
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public double getValue() {
         return Optional.ofNullable(ingredient)
                 .map(ingredient -> ingredient.getPrice() * quantity)
-                .orElseThrow(() -> new RuntimeException("Ingrediente não pode ser null"));
-
-//        return ingredient == null ? 0.0 : ingredient.getPrice() * quantity;
+                .orElseThrow(() -> new RuntimeException("Ingredient can not be null."));
     }
 }
